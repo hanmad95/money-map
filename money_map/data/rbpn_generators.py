@@ -69,6 +69,19 @@ class RBPN_Generator:
         self.pos_amounts = self.create_possible_amounts()
 
     def init_faker(self,faker_seed:int) -> Faker:
+        '''Initializing faker object, containing providers: person, bank,
+           company, date_time and lorem.
+
+        Parameters
+        ----------
+        faker_seed : int
+            Input for Faker.seed() function
+
+        Returns
+        -------
+        Faker
+            Faker object used to generate random data.
+        '''
 
         # init faker with specific seed
         fake = Faker()
@@ -177,6 +190,23 @@ class RBPN_Generator:
                                 total_samples:int=1000,
                                 expenses_ratio:float=0.90
                                 ) -> List[float]:
+        '''Creates a list of possible amounts used for random transactions.
+           Amounts can be positive = income or negative = expense.
+
+        Parameters
+        ----------
+        total_samples : int, optional
+            Number of samples, by default 1000
+        expenses_ratio : float, optional
+            Ratio of amount samples that are expenses (value < 0), by default 0.90
+
+        Returns
+        -------
+        List[float]
+            List containing possible amounts.
+            total_samples*(1-expenses_ratio) are positive numbers and
+            total_samples*expenses_ratio are negative numbers.
+        '''
 
         negative_numbers= [round(-abs(random.gauss(-150, 150)),2) for i
                         in range(int(total_samples*expenses_ratio))]
@@ -188,6 +218,13 @@ class RBPN_Generator:
 
     # random new_entry related to sender
     def create_random_sender(self) -> Dict[str,str]:
+        '''Creating random sender data for a random RBPN transaction.
+
+        Returns
+        -------
+        Dict[str,str]
+            Contains random sender data, part of random RBPN transaction.
+        '''
 
         new_entry = {}
         new_entry["sender_account_type"] = random.choice(self.pos_sender_account_types)
@@ -199,6 +236,13 @@ class RBPN_Generator:
 
     # random new_entry related to receiver
     def create_random_receiver(self) -> Dict[str,str]:
+        '''Creating random receiver data for a random RBPN transaction.
+
+        Returns
+        -------
+        Dict[str,str]
+            Contains random receiver data, part of random RBPN transaction.
+        '''
 
         new_entry = {}
         new_entry["receiver_name"] = random.choice([self.fake.name(),self.fake.company()])
