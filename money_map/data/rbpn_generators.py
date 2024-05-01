@@ -17,6 +17,7 @@ POS_INCOME_BOOKING_TEXTS:List[str] = ["GUTSCHRIFT","EINZAHLUNG","LOHN/GEHALT"]
 POS_EXPENSE_BOOKING_TEXTS:List[str] = ["LASTSCHRIFT","SEPA-UEBERWEISUNG","DAUERAUFTRAG",
                                        "Kartenzahlung girocard","Aufladung Mobilfunkguthaben",
                                        "Auszahlung girocard","Kartenzahlung V PAY","ABSCHLUSS"]
+POS_MONTHLY_BOOKING_TEXTS:List[str] = ["DAUERAUFTRAG","ABSCHLUSS","LOHN/GEHALT"]
 POS_SENDER_ACCOUNT_TYPES:List[str] = ["Girokonto"]
 POS_SENDER_BANK_NAMES:List[str] = ["RBPN"]
 
@@ -56,6 +57,7 @@ class RBPN_Generator:
     pos_sender_bank_names:List[str]=field(default=POS_SENDER_BANK_NAMES,init=True)
     pos_income_booking_texts:List[str]=field(default=POS_INCOME_BOOKING_TEXTS,init=True)
     pos_expense_booking_texts:List[str]=field(default=POS_EXPENSE_BOOKING_TEXTS,init=True)
+    pos_monthly_booking_texts:List[str]=field(default=POS_MONTHLY_BOOKING_TEXTS,init=True)
     faker_seed:int=field(default=1234,init=True)
 
     # post init
@@ -99,10 +101,35 @@ class RBPN_Generator:
     #endregion
 
     # region [public]
+
+    def generate_random_data(self,
+                             start_date:date,
+                             end_date:date,
+                             num_unique_sender:int,
+                             num_unique_receiver:int,
+                             start_balance:float,
+                             ) -> pd.DateOffset:
+
+        df = self.create_random_transactions(start_date=start_date,
+                                             end_date=end_date,
+                                             num_unique_sender=num_unique_sender,
+                                             num_unique_receiver=num_unique_receiver)
+
+        df = self.repeat_some_transactions_monthly(df=df,
+                                                   start_date=start_date,
+                                                   end_date=end_date)
+
+        df = self.add_balance_after_booking(df=df,
+                                            start_balance=start_balance)
+
+        df = self.rename_columns(df=df)
+
+        return df
+
+
     def create_random_transactions(self,
                                    start_date:date,
                                    end_date:date,
-                                   start_balance:float,
                                    num_unique_sender:int,
                                    num_unique_receiver:int
                                    ) -> pd.DataFrame:
@@ -111,10 +138,10 @@ class RBPN_Generator:
         transactions:List[Dict[str,Union[str,float]] ] = []
 
 
-        for k in range(num_unique_sender):
+        for i in range(num_unique_sender):
             new_entry.update(self.create_random_sender())
 
-            for i in range(num_unique_receiver):
+            for j in range(num_unique_receiver):
                 new_entry.update(self.create_random_receiver())
 
                 # insert other required columns
@@ -148,15 +175,41 @@ class RBPN_Generator:
 
         return df
 
+    def repeat_some_transactions_monthly(self,
+                                         df: pd.DataFrame,
+                                         start_date:date,
+                                         end_date:date
+                                         ) -> pd.DataFrame:
 
-    # TODO:
-    def repeat_some_transactions(df: pd.DataFrame) -> pd.DataFrame:
+        # define months between given start and end date
+        month_range = (pd.date_range(start_date,end_date,freq="MS")
+                        .to_series().reset_index(drop=True))
 
-        return df
+        # filter ut relevant transactions
+        target_rows = df.loc[df["booking_text"].isin(self.pos_monthly_booking_texts)]
+        others = df.loc[~df["booking_text"].isin(self.pos_monthly_booking_texts)]
+
+        # init result dataframe
+        new_data = pd.DataFrame()
+
+        # iterate over all rows
+        for i in range(target_rows.shape[0]):
+            cur_date = target_rows.iloc[[i]]["booking_date"].values[0]
+            cur_day = min(cur_date.day,28)
+            # define new dates
+            new_dates = month_range.apply(lambda x: x.replace(day=cur_day))
+            # repeat data & adjust dates
+            cur_new_data = pd.concat([target_rows.iloc[[i]]]*(month_range.shape[0]))
+            cur_new_data["booking_date"] = new_dates.dt.date.values
+            cur_new_data["value_date"] = new_dates.dt.date.values
+            new_data=pd.concat([new_data,cur_new_data],axis="index")
+
+        return pd.concat([others,new_data],axis="index")
 
 
 
-    def add_balance_after_booking(df:pd.DataFrame,
+    def add_balance_after_booking(self,
+                                  df:pd.DataFrame,
                                   start_balance:float,
                                   booking_date_col_name:str = "booking_date",
                                   amount_col_name:str = "amount",
@@ -169,9 +222,9 @@ class RBPN_Generator:
         df[res_col_name] = df[amount_col_name].cumsum() + df[temp_col_name]
         df = df.drop(columns=[temp_col_name])
 
-        return df
+        return df.reset_index(drop=True)
 
-    def rename_columns(df: pd.DataFrame) -> pd.DataFrame:
+    def rename_columns(self, df: pd.DataFrame) -> pd.DataFrame:
         return df.rename(columns=RBPN_COLUMN_MAPPING)
 
     #endregion
