@@ -78,15 +78,16 @@ def compute_tab_labeling(unlabeled_transactions:pd.DataFrame,
         # get selected category id
         temp_cat4_df = temp_cat3_df.loc[temp_cat3_df["category_3"]==selected_category_3]
         selected_category_id = temp_cat4_df["category_id"].tolist()
-        assert len(selected_category_id) == 1
-        selected_category_id = selected_category_id[0]
+
+        if len(selected_category_id)==1:
+            selected_category_id = selected_category_id[0]
 
 
-        if st.button("Submit"):
-            add_labeled_transactions(_engine=engine,
-                                    current_unlabeled_transactions=current_unlabeled_transactions,
-                                    category_id=selected_category_id,
-                                    category_1=selected_category_1,
-                                    category_2=selected_category_2,
-                                    category_3=selected_category_3)
-            st.rerun()
+            if st.button("Submit"):
+                add_labeled_transactions(_engine=engine,
+                                        current_unlabeled_transactions=current_unlabeled_transactions,
+                                        category_id=selected_category_id,
+                                        category_1=selected_category_1,
+                                        category_2=selected_category_2,
+                                        category_3=selected_category_3)
+                st.rerun()
