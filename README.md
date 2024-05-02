@@ -17,4 +17,4 @@ Labeling bank transactions and displaying income/expenses via streamlit.
 ---
 
 ### First Look
-![](https://github.com/hanmad95/money-map/snapshots/MoneyMapLabeling.gif)
+![labeling-gif](https://github.com/hanmad95/money-map/snapshots/MoneyMapLabeling.gif)
