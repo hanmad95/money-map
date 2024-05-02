@@ -105,14 +105,32 @@ class RBPN_Generator:
     def generate_random_data(self,
                              start_date:date,
                              end_date:date,
-                             num_unique_sender:int,
                              num_unique_receiver:int,
                              start_balance:float,
-                             ) -> pd.DateOffset:
+                             ) -> pd.DataFrame:
+        ''' Generating random transactions from RBPN. Should mimik the structure
+            of original files from RBPN bank.
+
+        Parameters
+        ----------
+        start_date : date
+            Start date of time window in which transactions will be generated.
+        end_date : date
+            End date of time window in which transactions will be generated.
+        num_unique_receiver : int
+            Number of unique receiver accounts
+        start_balance : float
+            Start balance of sender accounts
+
+        Returns
+        -------
+        pd.DataFrame
+            Dataframe containing generated transactions, mimiking original data.
+
+        '''
 
         df = self.create_random_transactions(start_date=start_date,
                                              end_date=end_date,
-                                             num_unique_sender=num_unique_sender,
                                              num_unique_receiver=num_unique_receiver)
 
         df = self.repeat_some_transactions_monthly(df=df,
@@ -130,45 +148,60 @@ class RBPN_Generator:
     def create_random_transactions(self,
                                    start_date:date,
                                    end_date:date,
-                                   num_unique_sender:int,
                                    num_unique_receiver:int
                                    ) -> pd.DataFrame:
+        '''Create random transactions of 1 random sender
+           account to num_unique_receiver accounts.
+
+        Parameters
+        ----------
+        start_date : date
+            Start date of time window in which transactions will be generated.
+        end_date : date
+            End date of time window in which transactions will be generated.
+        num_unique_receiver : int
+            Number of unique receiver accounts
+
+        Returns
+        -------
+        pd.DataFrame
+            Dataframe containing generated transactions.
+        '''
         # init
         new_entry:Dict[str,Union[str,float]] = {}
         transactions:List[Dict[str,Union[str,float]] ] = []
 
+        # init random sender
+        new_entry.update(self.create_random_sender())
 
-        for i in range(num_unique_sender):
-            new_entry.update(self.create_random_sender())
+        for j in range(num_unique_receiver):
+            new_entry.update(self.create_random_receiver())
 
-            for j in range(num_unique_receiver):
-                new_entry.update(self.create_random_receiver())
+            # insert other required columns
+            buchungstag = self.fake.date_between(start_date=start_date,
+                                end_date=end_date)
+            new_entry["booking_date"] = buchungstag
+            new_entry["value_date"] = buchungstag
+            new_entry["purpose"] = self.fake.paragraph(nb_sentences=1)
+            new_entry["amount"] = random.choice(self.pos_amounts)
 
-                # insert other required columns
-                buchungstag = self.fake.date_between(start_date=start_date,
-                                    end_date=end_date)
-                new_entry["booking_date"] = buchungstag
-                new_entry["value_date"] = buchungstag
-                new_entry["purpose"] = self.fake.paragraph(nb_sentences=1)
-                new_entry["amount"] = random.choice(self.pos_amounts)
+            # define booking text
+            if float(new_entry["amount"]) > 0:
+                new_entry["booking_text"] = random.choice(self.pos_income_booking_texts)
+            else:
+                new_entry["booking_text"] = random.choice(self.pos_expense_booking_texts)
+                pass
 
-                # define booking text
-                if float(new_entry["amount"]) > 0:
-                    new_entry["booking_text"] = random.choice(self.pos_income_booking_texts)
-                else:
-                    new_entry["booking_text"] = random.choice(self.pos_expense_booking_texts)
-                    pass
+            # constants (not that relevant, but required)
+            new_entry["currency"] = "EUR"
+            new_entry["notes"] = None
+            new_entry["default_category"] = None
+            new_entry["tax_relevant"] = None
+            new_entry["creditor_id"] = None
+            new_entry["mandate_reference"] = None
 
-                # constants (not that relevant, but required)
-                new_entry["currency"] = "EUR"
-                new_entry["notes"] = None
-                new_entry["default_category"] = None
-                new_entry["tax_relevant"] = None
-                new_entry["creditor_id"] = None
-                new_entry["mandate_reference"] = None
-
-                # append row to transaction
-                transactions.append(new_entry.copy())
+            # append row to transaction
+            transactions.append(new_entry.copy())
 
         # define balance after booking based on start balance
         df = pd.DataFrame(transactions)
@@ -180,6 +213,25 @@ class RBPN_Generator:
                                          start_date:date,
                                          end_date:date
                                          ) -> pd.DataFrame:
+        '''Repeats certain transactions for every month within the given
+           start & end date. These transactions will be repeated if their booking
+           text is contained in the defined list self.pos_monthly_booking_texts.
+
+        Parameters
+        ----------
+        df : pd.DataFrame
+            Dataframe containing generated transactions.
+        start_date : date
+            Start date of time window in which some transactions will be repeated.
+        end_date : date
+            Start date of time window in which some transactions will be repeated.
+
+        Returns
+        -------
+        pd.DataFrame
+            Dataframe containing generated transactions, some transactions now
+            repeat themself every month within the given time window.
+        '''
 
         # define months between given start and end date
         month_range = (pd.date_range(start_date,end_date,freq="MS")
@@ -216,7 +268,29 @@ class RBPN_Generator:
                                   res_col_name:str = "balance_after_booking",
                                   temp_col_name:str = "start_balance"
                                   ) -> pd.DataFrame:
+        '''Adds balance_after_booking column to generated transactions,
+           dependend on given start_balance and the amount of transaction.
 
+        Parameters
+        ----------
+        df : pd.DataFrame
+            Input Dataframe containing generated RBPN transactions
+        start_balance : float
+            Start balance of fake sender account
+        booking_date_col_name : str, optional
+            Column name of booking date, by default "booking_date"
+        amount_col_name : str, optional
+            Column name of amount, by default "amount"
+        res_col_name : str, optional
+            Column name of balance_after_booking, by default "balance_after_booking"
+        temp_col_name : str, optional
+           Column name of temporary column, by default "start_balance"
+
+        Returns
+        -------
+        pd.DataFrame
+            Input Dataframe with additional column describing balance_after_booking.
+        '''
         df = df.sort_values(booking_date_col_name)
         df[temp_col_name] = start_balance
         df[res_col_name] = df[amount_col_name].cumsum() + df[temp_col_name]
