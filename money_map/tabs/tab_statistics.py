@@ -23,7 +23,7 @@ def define_daily_balance(labeled_transactions:pd.DataFrame
 
 
 def define_monthly_transactions(labeled_transactions:pd.DataFrame,
-                                ignore_categories_3:List[str] = ["Umlagerungen"]
+                                ignore_categories_3:List[str] = ["Transfer"]
                                  ) -> Tuple[pd.DataFrame, pd.DataFrame]:
 
     # filter out certain categories 3rd level
@@ -63,7 +63,7 @@ def plot_monthly_transactions(monthly_df:pd.DataFrame,
                               category_level:str="category_3"
                             ) ->go.Figure:
 
-    fig = px.bar(monthly_df,x="year-month",y="amount",color=category_level,height=1000)
+    fig = px.bar(monthly_df,x="year-month",y="amount",color=category_level,height=750)
     fig.add_trace(go.Scatter(
         x=monthly_df_total .index,
         y=monthly_df_total['amount'],
@@ -96,7 +96,8 @@ def plot_daily_balance(daily_df:pd.DataFrame,
                              name="max_balance_after_booking"))
     fig.update_layout(title=title,
                     xaxis_title='Booking Date',
-                    yaxis_title='Balance [€]')
+                    yaxis_title='Balance [€]',
+                    height=500)
     return fig
 
 # =============================================================================
@@ -114,8 +115,12 @@ def compute_tab_statistics(labeled_transactions: pd.DataFrame,
     target_accounts = None
     target_accounts = st.multiselect("Select Target Accounts",unique_iban_sender)
 
+    # define select category level
+    category_level = None
+    category_level = st.selectbox("Select Category Level",["category_1","category_2","category_3"])
+
     # loop over selection
-    if target_accounts:
+    if target_accounts and category_level:
         for target_account in target_accounts:
             st.write("------")
             st.subheader((f":orange[Account: {target_account}]" ))
@@ -127,7 +132,8 @@ def compute_tab_statistics(labeled_transactions: pd.DataFrame,
                                                 labeled_transactions=current_labeled_transactions)
             fig_monthly = plot_monthly_transactions(monthly_df=monthly_df,
                                                     monthly_df_total=monthly_df_total,
-                                                    title=f"Monthly Transactions: {target_account}")
+                                                    title=f"Monthly Transactions: {target_account}",
+                                                    category_level=category_level)
             st.plotly_chart(fig_monthly, use_container_width=True)
 
             # create daily balance chart
