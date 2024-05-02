@@ -17,6 +17,23 @@ def add_labeled_transactions(_engine: Any,
                             category_2:str,
                             category_3:str
                             ) -> None:
+    '''Adding labeled transactions to Participants_Labeled_Table
+
+    Parameters
+    ----------
+    _engine : Any
+        _description_
+    current_unlabeled_transactions : Dict[str,str]
+        _description_
+    category_id : int
+        Selected category_id by user.
+    category_1 : str
+        Selected category_1 by user.
+    category_2 : str
+        Selected category_2 by user.
+    category_3 : str
+        Selected category_3 by user.
+    '''
     # add new entry
     with Session(_engine) as session:
         new_entry = Participants_Labeled_Table(
@@ -45,6 +62,21 @@ def compute_tab_labeling(unlabeled_transactions:pd.DataFrame,
                          engine:Any,
                          tab_title:str = "Assign Categories to Unique Transactions: "
                          ) -> None:
+    '''Executing Tab Labeling
+
+    Parameters
+    ----------
+    unlabeled_transactions : pd.DataFrame
+        Currently unlabeled transactions requested from given database.
+    categories_df : pd.DataFrame
+        Possible categories for labeling the data.
+    number_labeled_transactions : int
+        Number of already labeled transactions.
+    engine : Any
+        SQLAlchemy Engine.
+    tab_title : _type_, optional
+        Title of tab, by default "Assign Categories to Unique Transactions: "
+    '''
 
     st.header(tab_title)
 

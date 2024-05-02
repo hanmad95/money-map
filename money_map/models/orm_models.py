@@ -12,9 +12,16 @@ class Base(DeclarativeBase):
 # =============================================================================
 
 class Transaction_Categories_Table(Base):
+    '''Available Categories for labeling the transactions based on participants.
+
+    Parameters
+    ----------
+    Base : sqlalchemy.orm.Base
+        sqlalchemy.orm.Base
+    '''
     __tablename__ = "transaction_categories"
 
-    category_id: Mapped[int] = mapped_column(Integer(),nullable=False,primary_key=True)
+    category_id: Mapped[int] = mapped_column(Integer(), nullable=False, primary_key=True)
     category_1: Mapped[str] = mapped_column(String(100), nullable=False)
     category_2: Mapped[str] = mapped_column(String(100), nullable=False)
     category_3: Mapped[str] = mapped_column(String(100), nullable=False)
@@ -24,6 +31,14 @@ class Transaction_Categories_Table(Base):
 # =============================================================================
 
 class Participants_Labeled_Table(Base):
+    '''Unique participants (sender & receiver & purpose) which are labeled.
+       Used for assigning categories to similar transactions.
+
+    Parameters
+    ----------
+    Base : sqlalchemy.orm.Base
+        sqlalchemy.orm.Base
+    '''
     __tablename__ = "participants_labeled"
 
     row_number: Mapped[int] = mapped_column(Integer(),nullable=False,primary_key=True,autoincrement=True)
@@ -43,6 +58,13 @@ class Participants_Labeled_Table(Base):
 # =============================================================================
 
 class Transactions_Table(Base):
+    '''Contains raw transaction data.
+
+    Parameters
+    ----------
+    Base : sqlalchemy.orm.Base
+       sqlalchemy.orm.Base
+    '''
     __tablename__ = "transactions"
 
     transaction_id: Mapped[str] = mapped_column(String(40),nullable=False,primary_key=True)
@@ -72,6 +94,14 @@ class Transactions_Table(Base):
 # =============================================================================
 
 class Transactions_Labeled_Table(Base):
+    '''Contains labeled transactions, based on Transactions_Table &
+       Participants_Labeled_Table.
+
+    Parameters
+    ----------
+    Base : sqlalchemy.orm.Base
+        sqlalchemy.orm.Base
+    '''
     __tablename__ = "transactions_labeled"
 
     transaction_id: Mapped[str] = mapped_column(String(40),nullable=False,primary_key=True)

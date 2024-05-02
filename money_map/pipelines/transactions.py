@@ -13,6 +13,18 @@ from money_map.models.orm_models import (Transactions_Table,
 def recreate_transactions_labeled(engine:Any,
                    target_table_name:str=Transactions_Labeled_Table.__tablename__,
                    chunksize:int=10000)->None:
+    '''Recreateing Transactions_Labeled_Table based on Transactions_Table &
+       Participants_Labeled_Table.
+
+    Parameters
+    ----------
+    engine : Any
+        SQL Alchemy engine
+    target_table_name : str, optional
+       Result table name, by default Transactions_Labeled_Table.__tablename__
+    chunksize : int, optional
+        chunksize, by default 10000
+    '''
 
     with Session(engine) as session:
 
