@@ -1,7 +1,7 @@
 
 # :bar_chart: money-map
 
-![Progress](https://progress-bar.dev/70/?title=progress)
+![Progress](https://progress-bar.dev/60/?title=progress)
 
 ---
 
