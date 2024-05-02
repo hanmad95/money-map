@@ -42,6 +42,19 @@ def get_number_labeled_transactions(_engine:Any) -> int:
     return count
 
 def get_unlabeled_transactions(_engine:Any) -> pd.DataFrame:
+    '''Request unlabeled transactions based on Transactions_Table &
+       Transactions_Labeled_Table.
+
+    Parameters
+    ----------
+    _engine : Any
+        SQL Alchemy Engine
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame containing all unlabeled transactions.
+    '''
 
     with Session(_engine) as session:
 
