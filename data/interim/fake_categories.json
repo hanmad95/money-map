@@ -1,0 +1,72 @@
+{
+    "Income": {
+    "Main job": ["Salary", "Bonuses", "Travel expense reimbursement"],
+    "Side job": ["Salary"],
+    "State": ["Grants"],
+    "Private": ["Sale of items", "Child benefit"],
+    "Miscellaneous": ["Deposits", "Credits", "Transfers"]
+    },
+    "Fixed expenses": {
+    "Housing Germany": [
+    "Rent",
+    "Utilities",
+    "Telephone & Internet",
+    "Broadcasting",
+    "Miscellaneous"
+    ],
+    "Insurance": [
+    "Health insurance",
+    "Supplementary health insurance",
+    "Private liability",
+    "Legal protection",
+    "Occupational disability",
+    "Household",
+    "Miscellaneous"
+    ],
+    "Financial expenses": [
+    "ETF savings plans",
+    "Other savings plans",
+    "Life insurances",
+    "Loan installments",
+    "Account management"
+    ],
+    "Mobility": [
+    "Vehicle insurance",
+    "Vehicle tax",
+    "Public transportation"
+    ],
+    "Other contracts": ["Mobile phone", "Subscriptions", "Club memberships"]
+    },
+    "Variable expenses": {
+    "Living expenses": [
+    "Groceries",
+    "Beverages",
+    "Takeout",
+    "Care",
+    "Fashion"
+    ],
+    "Health": ["Medications", "Doctor's costs"],
+    "Housing": [
+    "Furniture",
+    "Appliances",
+    "Maintenance",
+    "Items",
+    "Deposits"
+    ],
+    "Mobility": [
+    "Vehicle purchase",
+    "Fuel",
+    "Maintenance",
+    "Public transportation"
+    ],
+    "Entertainment": ["Vacation", "Going out"],
+    "Education": ["Fees"],
+    "Miscellaneous": [
+    "Gifts",
+    "Items",
+    "Credits",
+    "Cash withdrawals",
+    "Transfers"
+    ]
+    }
+    }
