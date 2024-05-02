@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select, and_, exists
 
 from money_map.connect.mysql_conector import MySQLConnector
+from money_map.ingestion.categories_ingestion import Categories_Ingestor
 from money_map.models.orm_models import (Transactions_Table,
                                          Transactions_Labeled_Table,
                                          Participants_Labeled_Table,
@@ -70,6 +71,11 @@ def get_unlabeled_transactions(_engine:Any) -> pd.DataFrame:
 connector = MySQLConnector()
 engine = connector.create_sql_engine()
 connector.create_tables()
+
+# ingest categories
+categ_ingestor = Categories_Ingestor()
+categ_ingestor.ingest_data_from_models() #read from models.categories.py
+
 
 # ==============================================================================
 # Streamlit Main
