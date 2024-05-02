@@ -6,16 +6,16 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select, and_, exists
 
 from money_map.connect.mysql_conector import MySQLConnector
-from money_map.ingestion.categories_ingestion import Categories_Ingestor
 from money_map.models.orm_models import (Transactions_Table,
                                          Transactions_Labeled_Table,
                                          Participants_Labeled_Table,
                                          Transaction_Categories_Table)
+from money_map.pipelines.transactions import recreate_transactions_labeled
 from money_map.tabs.tab_statistics import compute_tab_statistics
 from money_map.tabs.tab_labeling import compute_tab_labeling
 
 # ==============================================================================
-# Fetch Data Functions
+# Cached Functions
 # ==============================================================================
 
 @st.cache_data(ttl="1h")
@@ -31,6 +31,10 @@ def get_labeled_transactions(_engine:Any) -> pd.DataFrame:
         stmt = select(Transactions_Labeled_Table)
         df = pd.read_sql(stmt, session.bind)
     return df
+
+# ==============================================================================
+# Regular Functions
+# ==============================================================================
 
 def get_number_labeled_transactions(_engine:Any) -> int:
     with Session(_engine) as session:
@@ -64,18 +68,13 @@ def get_unlabeled_transactions(_engine:Any) -> pd.DataFrame:
 
     return df
 
+
 # ==============================================================================
 # init connection
 # ==============================================================================
 
 connector = MySQLConnector()
 engine = connector.create_sql_engine()
-connector.create_tables()
-
-# ingest categories
-categ_ingestor = Categories_Ingestor()
-categ_ingestor.ingest_data_from_models() #read from models.categories.py
-
 
 # ==============================================================================
 # Streamlit Main
@@ -84,18 +83,10 @@ st.set_page_config(layout="wide")
 st.title("Money Map")
 
 # init different tabs
-tab_statistics, tab_labeling, tab_upload  = st.tabs(["View Statistics","Labeling", "Upload Data"])
+tab_labeling, tab_statistics, tab_upload  = st.tabs(["Labeling", "View Statistics", "Upload Data"])
 
 # ==============================================================================
-# TAB 1: Statistics
-# ==============================================================================
-
-with tab_statistics:
-    labeled_transactions = get_labeled_transactions(_engine=engine)
-    compute_tab_statistics(labeled_transactions=labeled_transactions)
-
-# ==============================================================================
-# TAB 2: Labeling
+# TAB 1: Labeling
 # ==============================================================================
 
 with tab_labeling:
@@ -110,6 +101,16 @@ with tab_labeling:
                          categories_df=categories_df,
                          number_labeled_transactions=number_labeled_transactions,
                          engine=engine)
+
+# ==============================================================================
+# TAB 2: Statistics
+# ==============================================================================
+
+with tab_statistics:
+
+    recreate_transactions_labeled(engine=engine)
+    labeled_transactions = get_labeled_transactions(_engine=engine)
+    compute_tab_statistics(labeled_transactions=labeled_transactions)
 
 # ==============================================================================
 # TAB 3: Upload
