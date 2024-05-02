@@ -116,8 +116,13 @@ class RBPN_Ingestor(Ingestor):
         df = df.rename(columns=RBPN_COLUMN_MAPPING)
 
         # change data types for transaction information
-        df['booking_date'] = pd.to_datetime(df['booking_date'],format='%d.%m.%Y')
-        df['value_date'] = pd.to_datetime(df['value_date'],format='%d.%m.%Y')
+        try:
+            df['booking_date'] = pd.to_datetime(df['booking_date'],format='%Y-%m-%d')
+            df['value_date'] = pd.to_datetime(df['value_date'],format='%Y-%m-%d')
+        except ValueError:
+            df['booking_date'] = pd.to_datetime(df['booking_date'],format='%d.%m.%Y')
+            df['value_date'] = pd.to_datetime(df['value_date'],format='%d.%m.%Y')
+
         df['amount'] = df['amount'].astype(str).str.replace(',','.').astype(float)
         df['balance_after_booking'] = (df['balance_after_booking'].astype(str)
                                     .str.replace(',','.').astype(float))
