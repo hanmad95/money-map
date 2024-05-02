@@ -18,9 +18,9 @@ Labeling bank transactions and displaying income/expenses via streamlit.
 - Transactions should be displayed on a monthly basis, colored based on their assigned category.
 
 #### Main Open Tasks:
-[] Upload tab for uploading files (ingest raw transactions from files to database table).
-[] Dockerize streamlit app and database.
-[] Writing tests.
+    [] Upload tab for uploading files (ingest raw transactions from files to database table).
+    [] Dockerize streamlit app and database.
+    [] Writing tests.
 
 ---
 ## Demo
