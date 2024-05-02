@@ -1,6 +1,6 @@
 # stdlib
 from pathlib import Path
-from typing import List,Union
+from typing import List
 
 from attrs import define
 import pandas as pd
@@ -77,20 +77,6 @@ class Categories_Ingestor(Ingestor):
             df = df.rename({"index":"category_id"},axis="columns")
         else:
             raise Exception("Unknown File Format!")
-
-        return df
-
-    def read_data_from_models(self) -> pd.DataFrame:
-
-        rows = []
-        for lvl1_key, lvl1_val in TRANSACTION_CATEGORIES.items():
-            for lvl2_key,lvl2_val in lvl1_val.items():
-                for ele in lvl2_val:
-                    rows.append([lvl1_key,lvl2_key,ele])
-
-        df = pd.DataFrame(rows,columns=["category_1","category_2","category_3"])
-        df = df.reset_index()
-        df = df.rename({"index":"category_id"},axis="columns")
 
         return df
 
