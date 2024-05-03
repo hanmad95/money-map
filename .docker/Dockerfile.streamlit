@@ -1,0 +1,24 @@
+
+# app/Dockerfile
+FROM python:3.9-slim
+
+#set working directory within container
+WORKDIR /app
+
+#  install dependencies
+# COPY ./requirements.txt /app
+
+
+# copy the scripts to the folder
+COPY . /app
+RUN pip install --upgrade pip
+RUN pip install -e .
+
+# view files
+RUN ls /app
+
+EXPOSE 80
+
+HEALTHCHECK CMD curl --fail http://localhost:80/_stcore/health
+
+ENTRYPOINT ["streamlit", "run", "money_map/main.py", "--server.port=80"]
