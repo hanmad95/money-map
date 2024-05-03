@@ -10,8 +10,8 @@ from sqlalchemy import select, inspect
 from sqlalchemy.orm import Session
 
 # custom class
-from money_map.models.orm_models import Transaction_Categories_Table
 from money_map.ingestion.ingestor import Ingestor
+from money_map.models.orm_models import Transaction_Categories_Table
 from money_map.connect.mysql_conector import MySQLConnector
 
 # =============================================================================
