@@ -43,10 +43,10 @@ class  MySQLConnector:
             SQLAlchemy Engine
         '''
         load_dotenv(find_dotenv())
-        return create_engine(self.create_db_url(user=os.getenv("USER"),
-                                                pw=os.getenv("PASSWORD"),
-                                                host=os.getenv("HOST"),
-                                                db=os.getenv("DATABASE")))
+        return create_engine(self.create_db_url(user=os.getenv("MYSQL_USER"),
+                                                pw=os.getenv("MYSQL_PASSWORD"),
+                                                host=os.getenv("MYSQL_HOST"),
+                                                db=os.getenv("MYSQL_DATABASE")))
 
     def create_tables(self) -> None:
         ''' Creates all tables in defined database, if not existing.
