@@ -81,13 +81,13 @@ def get_unlabeled_transactions(_engine:Any) -> pd.DataFrame:
 
     return df
 
-
 # ==============================================================================
 # init connection
 # ==============================================================================
 
 connector = MySQLConnector()
 engine = connector.create_sql_engine()
+connector.create_tables()
 
 # ==============================================================================
 # Streamlit Main
@@ -96,7 +96,9 @@ st.set_page_config(layout="wide")
 st.title("Money Map")
 
 # init different tabs
-tab_labeling, tab_statistics, tab_upload  = st.tabs(["Labeling", "View Statistics", "Upload Data"])
+tab_labeling, tab_statistics, tab_upload  = st.tabs(["Labeling",
+                                                     "View Statistics",
+                                                     "Upload Data"])
 
 # ==============================================================================
 # TAB 1: Labeling
@@ -128,6 +130,7 @@ with tab_statistics:
 # ==============================================================================
 # TAB 3: Upload
 # ==============================================================================
+
 
 # TODO: Select Channels (Ingestion Mode)
 #       Pop up File Upload file and after upload it should ingest it
