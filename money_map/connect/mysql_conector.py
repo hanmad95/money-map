@@ -13,7 +13,7 @@ class  MySQLConnector:
 
     # region [public]
     # Public variables and public methods are accessible outside the object + (staticmethods).
-    def create_db_url(self,user:str,pw:str,host:str,db:str) -> str:
+    def create_db_url(self,user:str,pw:str,host:str,db:str,port:int) -> str:
         '''Generate MYSQL Database Connection URL
 
         Parameters
@@ -32,7 +32,7 @@ class  MySQLConnector:
         str
            Connection URL
         '''
-        return f"mysql+pymysql://{user}:{pw}@{host}/{db}"
+        return f"mysql+pymysql://{user}:{pw}@{host}:{port}/{db}"
 
     def create_sql_engine(self) -> Any:
         '''Create SQLAlchemy Engine
@@ -46,7 +46,8 @@ class  MySQLConnector:
         return create_engine(self.create_db_url(user=os.getenv("MYSQL_USER"),
                                                 pw=os.getenv("MYSQL_PASSWORD"),
                                                 host=os.getenv("MYSQL_HOST"),
-                                                db=os.getenv("MYSQL_DATABASE")))
+                                                db=os.getenv("MYSQL_DATABASE"),
+                                                port=int(os.getenv("MYSQL_PORT"))))
 
     def create_tables(self) -> None:
         ''' Creates all tables in defined database, if not existing.
