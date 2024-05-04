@@ -1,0 +1,2 @@
+# For building run:
+docker-compose up --build
