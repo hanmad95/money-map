@@ -1,49 +1,49 @@
-row_number,sender_bank_name,sender_iban,receiver_name,receiver_iban,booking_text,purpose_char,category_id,category_1,category_2,category_3
-1,RBPN,GB87YODA19011530005979,Adams, Walker and Jones,GB60DSOV30707801799689,ABSCHLUSS,drive question we follow,37,Variable expenses,Living expenses,Fashion
-2,RBPN,GB87YODA19011530005979,Amy Riley,GB50YYFZ33231044832099,LASTSCHRIFT,style grow eight carry carry,37,Variable expenses,Living expenses,Fashion
-3,RBPN,GB87YODA19011530005979,Andrew Myers,GB25CZXL23186024805804,DAUERAUFTRAG,tree red present pick paper,16,Fixed expenses,Insurance,Supplementary health insurance
-4,RBPN,GB87YODA19011530005979,Arnold-Lawrence,GB89PEAD91436481302063,Aufladung Mobilfunkguthaben,environment fear either plant,30,Fixed expenses,Other contracts,Mobile phone
-6,RBPN,GB87YODA19011530005979,Brian Contreras,GB69OVYM85148454554764,Auszahlung girocard,man board discover likely study case air,49,Variable expenses,Entertainment,Vacation
-7,RBPN,GB87YODA19011530005979,Chang and Sons,GB76GBNM53648465928144,LASTSCHRIFT,trouble thousand time forward,49,Variable expenses,Entertainment,Vacation
-8,RBPN,GB87YODA19011530005979,Collins LLC,GB24XUML14456210338092,Auszahlung girocard,wind hot laugh stand ever way few,38,Variable expenses,Health,Medications
-9,RBPN,GB87YODA19011530005979,Daniel Obrien,GB59UEXD51811170366359,Aufladung Mobilfunkguthaben,water area all bed,30,Fixed expenses,Other contracts,Mobile phone
-10,RBPN,GB87YODA19011530005979,Elliott, Bowers and Brown,GB19CQLL70000983916488,SEPA-UEBERWEISUNG,owner instead week language writer top although physical,40,Variable expenses,Housing,Furniture
-11,RBPN,GB87YODA19011530005979,Elliott-Riggs,GB20DHUA79287944999345,Auszahlung girocard,consumer physical if cup child let,51,Variable expenses,Education,Fees
-12,RBPN,GB87YODA19011530005979,Emily Powell,GB63NVJI92795382069792,DAUERAUFTRAG,themselves congress much similar appear drop,10,Fixed expenses,Housing Germany,Rent
-13,RBPN,GB87YODA19011530005979,Freeman LLC,GB16TEIY67452173731428,LASTSCHRIFT,type laugh task each,47,Variable expenses,Mobility,Maintenance
-15,RBPN,GB87YODA19011530005979,Harvey-Booth,GB51CSXN95890678261885,ABSCHLUSS,tv among maybe pull,31,Fixed expenses,Other contracts,Subscriptions
-16,RBPN,GB87YODA19011530005979,Hill-Peters,GB31HDAX33126635998956,Auszahlung girocard,remain bed answer market,46,Variable expenses,Mobility,Fuel
-17,RBPN,GB87YODA19011530005979,Horn-Adams,GB14UGOQ08105276201972,Aufladung Mobilfunkguthaben,safe mind just every sing indicate,49,Variable expenses,Entertainment,Vacation
-18,RBPN,GB87YODA19011530005979,Hurley, Daniels and Cruz,GB27CFGN20507642731285,LASTSCHRIFT,out with focus star stay story threat,39,Variable expenses,Health,Doctor's costs
-19,RBPN,GB87YODA19011530005979,Jasmin Delgado,GB19KELZ79791584206109,Kartenzahlung girocard,on bar entire various,42,Variable expenses,Housing,Maintenance
-20,RBPN,GB87YODA19011530005979,Jeffery Brown,GB83EUFY00900457245511,LASTSCHRIFT,receive visit blue free,42,Variable expenses,Housing,Maintenance
-21,RBPN,GB87YODA19011530005979,Jennifer Mcclain,GB79JXDO19499572398065,ABSCHLUSS,my gun right contain sign,20,Fixed expenses,Insurance,Household
-22,RBPN,GB87YODA19011530005979,Jennifer Morales,GB25PXMA44627469953324,Kartenzahlung girocard,tend seat stand community positive sea,35,Variable expenses,Living expenses,Takeout
-23,RBPN,GB87YODA19011530005979,Jennifer Roberson,GB86SRTT70515609915393,DAUERAUFTRAG,main out loss lose knowledge room save,18,Fixed expenses,Insurance,Legal protection
-24,RBPN,GB87YODA19011530005979,Jensen, Howard and Sheppard,GB41UBRP92674376970661,LASTSCHRIFT,issue wait economic here east,33,Variable expenses,Living expenses,Groceries
-25,RBPN,GB87YODA19011530005979,Johnson, Armstrong and Rogers,GB90RKXG18314011048959,DAUERAUFTRAG,inside fire my,19,Fixed expenses,Insurance,Occupational disability
-26,RBPN,GB87YODA19011530005979,Jones, Evans and Duran,GB67ESML46381310928833,SEPA-UEBERWEISUNG,within official could seek beautiful,39,Variable expenses,Health,Doctor's costs
-27,RBPN,GB87YODA19011530005979,Karen Myers,GB42DDEE17518013256496,Aufladung Mobilfunkguthaben,spring report carry hotel loss amount according,47,Variable expenses,Mobility,Maintenance
-28,RBPN,GB87YODA19011530005979,Key Inc,GB04OMVY00591295169235,ABSCHLUSS,produce foreign expert attorney rise american,32,Fixed expenses,Other contracts,Club memberships
-29,RBPN,GB87YODA19011530005979,Laura Erickson,GB35PUEM87964944252494,Kartenzahlung V PAY,whatever place free crime,35,Variable expenses,Living expenses,Takeout
-30,RBPN,GB87YODA19011530005979,Lisa Hill,GB98JUUX14258051007884,DAUERAUFTRAG,imagine cut safe color process on be,12,Fixed expenses,Housing Germany,Telephone & Internet
-31,RBPN,GB87YODA19011530005979,Louis Baker,GB55BMZC72143693650832,Auszahlung girocard,network animal talk simply page,34,Variable expenses,Living expenses,Beverages
-32,RBPN,GB87YODA19011530005979,Luis Hicks,GB31DBDB28858397329675,Auszahlung girocard,movement certainly significant to without i,34,Variable expenses,Living expenses,Beverages
-33,RBPN,GB87YODA19011530005979,Matthew Martinez,GB93FHBU69779870102528,Kartenzahlung V PAY,as coach remember rock for step save,36,Variable expenses,Living expenses,Care
-34,RBPN,GB87YODA19011530005979,Melissa Martin,GB37YCKK98801497857630,SEPA-UEBERWEISUNG,huge may cell imagine,37,Variable expenses,Living expenses,Fashion
-35,RBPN,GB87YODA19011530005979,Michele Howe,GB28TOTO68584664975342,Kartenzahlung girocard,space ago such congress chair,37,Variable expenses,Living expenses,Fashion
-36,RBPN,GB87YODA19011530005979,Michelle Rice,GB43ZPPD88243156485683,LASTSCHRIFT,upon resource total coach win across others tv,34,Variable expenses,Living expenses,Beverages
-37,RBPN,GB87YODA19011530005979,Miller Group,GB49WYRX68655688988967,Auszahlung girocard,executive production military game management walk here around,33,Variable expenses,Living expenses,Groceries
-38,RBPN,GB87YODA19011530005979,Moore-Cole,GB11RWNW48047844706091,EINZAHLUNG,picture firm necessary bill stand federal performance five,4,Income,State,Grants
-39,RBPN,GB87YODA19011530005979,Morales, Diaz and Wilson,GB61LIJC75634256520100,SEPA-UEBERWEISUNG,according relate morning position half current fact,33,Variable expenses,Living expenses,Groceries
-40,RBPN,GB87YODA19011530005979,Parks, Rivera and Bautista,GB51JSGQ41893585574189,Kartenzahlung girocard,performance attention most stuff read trial senior,46,Variable expenses,Mobility,Fuel
-41,RBPN,GB87YODA19011530005979,Proctor-Baker,GB09MBPY82015357802342,Auszahlung girocard,cost read cultural from voice concern city,46,Variable expenses,Mobility,Fuel
-42,RBPN,GB87YODA19011530005979,Reyes-Sanders,GB21FVEW59178681441730,Auszahlung girocard,major ask ability individual operation,46,Variable expenses,Mobility,Fuel
-43,RBPN,GB87YODA19011530005979,Roberts-Ross,GB79EJSS49633693485532,ABSCHLUSS,health first health i walk,17,Fixed expenses,Insurance,Private liability
-44,RBPN,GB87YODA19011530005979,Steven Rivers,GB84DWOE08782474840355,Kartenzahlung V PAY,bit doctor week build,34,Variable expenses,Living expenses,Beverages
-45,RBPN,GB87YODA19011530005979,Taylor-Douglas,GB15CCXJ62429302228692,Kartenzahlung V PAY,baby nature already including seat,36,Variable expenses,Living expenses,Care
-46,RBPN,GB87YODA19011530005979,Teresa Garcia,GB67IUGL12942571163040,DAUERAUFTRAG,line catch answer close certain national research,22,Fixed expenses,Financial expenses,ETF savings plans
-47,RBPN,GB87YODA19011530005979,Theresa Mayo,GB97VVQO95939947263271,EINZAHLUNG,painting partner protect what good agent street,5,Income,Private,Sale of items
-48,RBPN,GB87YODA19011530005979,Underwood Ltd,GB45CBNL57260711157942,LOHN/GEHALT,value learn cold final,0,Income,Main job,Salary
-49,RBPN,GB87YODA19011530005979,Wright-Haley,GB65CCKJ90010174342191,Aufladung Mobilfunkguthaben,those camera green ability task animal chance step,35,Variable expenses,Living expenses,Takeout
-50,RBPN,GB87YODA19011530005979,Wyatt-Brock,GB75WWGT82554870870603,SEPA-UEBERWEISUNG,human brother tree specific,40,Variable expenses,Housing,Furniture
+row_number;sender_bank_name;sender_iban;receiver_name;receiver_iban;booking_text;purpose_char;category_id;category_1;category_2;category_3
+1;RBPN;GB87YODA19011530005979;Adams, Walker and Jones;GB60DSOV30707801799689;ABSCHLUSS;drive question we follow;37;Variable expenses;Living expenses;Fashion
+2;RBPN;GB87YODA19011530005979;Amy Riley;GB50YYFZ33231044832099;LASTSCHRIFT;style grow eight carry carry;37;Variable expenses;Living expenses;Fashion
+3;RBPN;GB87YODA19011530005979;Andrew Myers;GB25CZXL23186024805804;DAUERAUFTRAG;tree red present pick paper;16;Fixed expenses;Insurance;Supplementary health insurance
+4;RBPN;GB87YODA19011530005979;Arnold-Lawrence;GB89PEAD91436481302063;Aufladung Mobilfunkguthaben;environment fear either plant;30;Fixed expenses;Other contracts;Mobile phone
+6;RBPN;GB87YODA19011530005979;Brian Contreras;GB69OVYM85148454554764;Auszahlung girocard;man board discover likely study case air;49;Variable expenses;Entertainment;Vacation
+7;RBPN;GB87YODA19011530005979;Chang and Sons;GB76GBNM53648465928144;LASTSCHRIFT;trouble thousand time forward;49;Variable expenses;Entertainment;Vacation
+8;RBPN;GB87YODA19011530005979;Collins LLC;GB24XUML14456210338092;Auszahlung girocard;wind hot laugh stand ever way few;38;Variable expenses;Health;Medications
+9;RBPN;GB87YODA19011530005979;Daniel Obrien;GB59UEXD51811170366359;Aufladung Mobilfunkguthaben;water area all bed;30;Fixed expenses;Other contracts;Mobile phone
+10;RBPN;GB87YODA19011530005979;Elliott, Bowers and Brown;GB19CQLL70000983916488;SEPA-UEBERWEISUNG;owner instead week language writer top although physical;40;Variable expenses;Housing;Furniture
+11;RBPN;GB87YODA19011530005979;Elliott-Riggs;GB20DHUA79287944999345;Auszahlung girocard;consumer physical if cup child let;51;Variable expenses;Education;Fees
+12;RBPN;GB87YODA19011530005979;Emily Powell;GB63NVJI92795382069792;DAUERAUFTRAG;themselves congress much similar appear drop;10;Fixed expenses;Housing Germany;Rent
+13;RBPN;GB87YODA19011530005979;Freeman LLC;GB16TEIY67452173731428;LASTSCHRIFT;type laugh task each;47;Variable expenses;Mobility;Maintenance
+15;RBPN;GB87YODA19011530005979;Harvey-Booth;GB51CSXN95890678261885;ABSCHLUSS;tv among maybe pull;31;Fixed expenses;Other contracts;Subscriptions
+16;RBPN;GB87YODA19011530005979;Hill-Peters;GB31HDAX33126635998956;Auszahlung girocard;remain bed answer market;46;Variable expenses;Mobility;Fuel
+17;RBPN;GB87YODA19011530005979;Horn-Adams;GB14UGOQ08105276201972;Aufladung Mobilfunkguthaben;safe mind just every sing indicate;49;Variable expenses;Entertainment;Vacation
+18;RBPN;GB87YODA19011530005979;Hurley, Daniels and Cruz;GB27CFGN20507642731285;LASTSCHRIFT;out with focus star stay story threat;39;Variable expenses;Health;Doctor's costs
+19;RBPN;GB87YODA19011530005979;Jasmin Delgado;GB19KELZ79791584206109;Kartenzahlung girocard;on bar entire various;42;Variable expenses;Housing;Maintenance
+20;RBPN;GB87YODA19011530005979;Jeffery Brown;GB83EUFY00900457245511;LASTSCHRIFT;receive visit blue free;42;Variable expenses;Housing;Maintenance
+21;RBPN;GB87YODA19011530005979;Jennifer Mcclain;GB79JXDO19499572398065;ABSCHLUSS;my gun right contain sign;20;Fixed expenses;Insurance;Household
+22;RBPN;GB87YODA19011530005979;Jennifer Morales;GB25PXMA44627469953324;Kartenzahlung girocard;tend seat stand community positive sea;35;Variable expenses;Living expenses;Takeout
+23;RBPN;GB87YODA19011530005979;Jennifer Roberson;GB86SRTT70515609915393;DAUERAUFTRAG;main out loss lose knowledge room save;18;Fixed expenses;Insurance;Legal protection
+24;RBPN;GB87YODA19011530005979;Jensen, Howard and Sheppard;GB41UBRP92674376970661;LASTSCHRIFT;issue wait economic here east;33;Variable expenses;Living expenses;Groceries
+25;RBPN;GB87YODA19011530005979;Johnson, Armstrong and Rogers;GB90RKXG18314011048959;DAUERAUFTRAG;inside fire my;19;Fixed expenses;Insurance;Occupational disability
+26;RBPN;GB87YODA19011530005979;Jones, Evans and Duran;GB67ESML46381310928833;SEPA-UEBERWEISUNG;within official could seek beautiful;39;Variable expenses;Health;Doctor's costs
+27;RBPN;GB87YODA19011530005979;Karen Myers;GB42DDEE17518013256496;Aufladung Mobilfunkguthaben;spring report carry hotel loss amount according;47;Variable expenses;Mobility;Maintenance
+28;RBPN;GB87YODA19011530005979;Key Inc;GB04OMVY00591295169235;ABSCHLUSS;produce foreign expert attorney rise american;32;Fixed expenses;Other contracts;Club memberships
+29;RBPN;GB87YODA19011530005979;Laura Erickson;GB35PUEM87964944252494;Kartenzahlung V PAY;whatever place free crime;35;Variable expenses;Living expenses;Takeout
+30;RBPN;GB87YODA19011530005979;Lisa Hill;GB98JUUX14258051007884;DAUERAUFTRAG;imagine cut safe color process on be;12;Fixed expenses;Housing Germany;Telephone & Internet
+31;RBPN;GB87YODA19011530005979;Louis Baker;GB55BMZC72143693650832;Auszahlung girocard;network animal talk simply page;34;Variable expenses;Living expenses;Beverages
+32;RBPN;GB87YODA19011530005979;Luis Hicks;GB31DBDB28858397329675;Auszahlung girocard;movement certainly significant to without i;34;Variable expenses;Living expenses;Beverages
+33;RBPN;GB87YODA19011530005979;Matthew Martinez;GB93FHBU69779870102528;Kartenzahlung V PAY;as coach remember rock for step save;36;Variable expenses;Living expenses;Care
+34;RBPN;GB87YODA19011530005979;Melissa Martin;GB37YCKK98801497857630;SEPA-UEBERWEISUNG;huge may cell imagine;37;Variable expenses;Living expenses;Fashion
+35;RBPN;GB87YODA19011530005979;Michele Howe;GB28TOTO68584664975342;Kartenzahlung girocard;space ago such congress chair;37;Variable expenses;Living expenses;Fashion
+36;RBPN;GB87YODA19011530005979;Michelle Rice;GB43ZPPD88243156485683;LASTSCHRIFT;upon resource total coach win across others tv;34;Variable expenses;Living expenses;Beverages
+37;RBPN;GB87YODA19011530005979;Miller Group;GB49WYRX68655688988967;Auszahlung girocard;executive production military game management walk here around;33;Variable expenses;Living expenses;Groceries
+38;RBPN;GB87YODA19011530005979;Moore-Cole;GB11RWNW48047844706091;EINZAHLUNG;picture firm necessary bill stand federal performance five;4;Income;State;Grants
+39;RBPN;GB87YODA19011530005979;Morales, Diaz and Wilson;GB61LIJC75634256520100;SEPA-UEBERWEISUNG;according relate morning position half current fact;33;Variable expenses;Living expenses;Groceries
+40;RBPN;GB87YODA19011530005979;Parks, Rivera and Bautista;GB51JSGQ41893585574189;Kartenzahlung girocard;performance attention most stuff read trial senior;46;Variable expenses;Mobility;Fuel
+41;RBPN;GB87YODA19011530005979;Proctor-Baker;GB09MBPY82015357802342;Auszahlung girocard;cost read cultural from voice concern city;46;Variable expenses;Mobility;Fuel
+42;RBPN;GB87YODA19011530005979;Reyes-Sanders;GB21FVEW59178681441730;Auszahlung girocard;major ask ability individual operation;46;Variable expenses;Mobility;Fuel
+43;RBPN;GB87YODA19011530005979;Roberts-Ross;GB79EJSS49633693485532;ABSCHLUSS;health first health i walk;17;Fixed expenses;Insurance;Private liability
+44;RBPN;GB87YODA19011530005979;Steven Rivers;GB84DWOE08782474840355;Kartenzahlung V PAY;bit doctor week build;34;Variable expenses;Living expenses;Beverages
+45;RBPN;GB87YODA19011530005979;Taylor-Douglas;GB15CCXJ62429302228692;Kartenzahlung V PAY;baby nature already including seat;36;Variable expenses;Living expenses;Care
+46;RBPN;GB87YODA19011530005979;Teresa Garcia;GB67IUGL12942571163040;DAUERAUFTRAG;line catch answer close certain national research;22;Fixed expenses;Financial expenses;ETF savings plans
+47;RBPN;GB87YODA19011530005979;Theresa Mayo;GB97VVQO95939947263271;EINZAHLUNG;painting partner protect what good agent street;5;Income;Private;Sale of items
+48;RBPN;GB87YODA19011530005979;Underwood Ltd;GB45CBNL57260711157942;LOHN/GEHALT;value learn cold final;0;Income;Main job;Salary
+49;RBPN;GB87YODA19011530005979;Wright-Haley;GB65CCKJ90010174342191;Aufladung Mobilfunkguthaben;those camera green ability task animal chance step;35;Variable expenses;Living expenses;Takeout
+50;RBPN;GB87YODA19011530005979;Wyatt-Brock;GB75WWGT82554870870603;SEPA-UEBERWEISUNG;human brother tree specific;40;Variable expenses;Housing;Furniture
