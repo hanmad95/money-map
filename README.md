@@ -19,8 +19,10 @@ Labeling bank transactions and displaying income/expenses via streamlit.
 
 #### Main Open Tasks:
     [] Upload tab for uploading files (ingest raw transactions from files to database table).
+    [] Adjust plot coloring.
     [] Dockerize streamlit app and database.
     [] Writing tests.
+
 
 ---
 ## Demo
