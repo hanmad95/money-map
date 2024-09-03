@@ -12,6 +12,7 @@
 ### Scope
 
 - Personal project, just for fun and exploring SQLAlchemy, Streamlit and Docker!
+  - NOT meant for production use!
 - Data generator should mock export file format from a online banking website.
 - Similar transactions can be labeled based on specific transaction categories.
 - Each unique category entry has 3 levels of detail (category_1, category_2, category_3).
