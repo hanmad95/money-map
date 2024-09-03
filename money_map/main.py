@@ -3,6 +3,7 @@ import pandas as pd
 from typing import Any
 
 from sqlalchemy.orm import Session
+from sqlalchemy.engine import Engine
 from sqlalchemy import select, and_, exists
 
 from money_map.connect.mysql_conector import MySQLConnector
@@ -19,14 +20,14 @@ from money_map.tabs.tab_labeling import compute_tab_labeling
 # ==============================================================================
 
 @st.cache_data(ttl="1h")
-def get_available_categories(_engine:Any) -> pd.DataFrame:
+def get_available_categories(_engine:Engine) -> pd.DataFrame:
     with Session(_engine) as session:
         stmt = select(Transaction_Categories_Table)
         df = pd.read_sql(stmt, session.bind)
     return df
 
 @st.cache_data(ttl="1h")
-def get_labeled_transactions(_engine:Any) -> pd.DataFrame:
+def get_labeled_transactions(_engine:Engine) -> pd.DataFrame:
     with Session(_engine) as session:
         stmt = select(Transactions_Labeled_Table)
         df = pd.read_sql(stmt, session.bind)
@@ -36,12 +37,12 @@ def get_labeled_transactions(_engine:Any) -> pd.DataFrame:
 # Regular Functions
 # ==============================================================================
 
-def get_number_labeled_transactions(_engine:Any) -> int:
+def get_number_labeled_transactions(_engine:Engine) -> int:
     with Session(_engine) as session:
         count = int(session.query(Participants_Labeled_Table).count())
     return count
 
-def get_unlabeled_transactions(_engine:Any) -> pd.DataFrame:
+def get_unlabeled_transactions(_engine:Engine) -> pd.DataFrame:
     '''Request unlabeled transactions based on Transactions_Table &
        Transactions_Labeled_Table.
 
